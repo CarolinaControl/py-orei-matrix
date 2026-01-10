@@ -31,4 +31,4 @@ If you haven't already, install **Pyscript** from HACS:
 
 ### Step 2: Add
 1.  Navigate to your Home Assistant config folder (using File Editor or VS Code).
-2.  Create a file named `orei_matrix.py` inside the `pyscript/` folder.
+2.  Upload `orei_matrix.py` inside the `pyscript/` folder.
