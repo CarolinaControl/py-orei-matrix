@@ -29,6 +29,18 @@ If you haven't already, install **Pyscript** from HACS:
 1.  Go to HACS > Integrations > Explore > Search for "Pyscript".
 2.  Install and restart Home Assistant.
 
-### Step 2: Add
+### Step 2: Add the Script
 1.  Navigate to your Home Assistant config folder (using File Editor or VS Code).
 2.  Upload `orei_matrix.py` inside the `pyscript/` folder.
+
+## Usage
+
+### Services
+The integration exposes the following services you can use in automations:\
+
+* service `pyscript.orei_set_route`: Switch inputs.
+    * `input_id`: 1-8
+    * `output_id`: 1-8 (or 0 for All)
+* service `pyscript.orei_power`: Turn matrix on/off.
+    * `power_state`: "on" or "off"
+* service `pyscript.orei_refresh_status`: Force a status update from the matrix.
