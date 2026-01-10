@@ -45,6 +45,60 @@ The integration exposes the following services you can use in automations:\
     * `power_state`: "on" or "off"
 * service `pyscript.orei_refresh_status`: Force a status update from the matrix.
 
+### Dashboard Configuration
+
+To control the matrix from your Home Assistant dashboard, you can use a **Vertical Stack** containing **Grid Cards**. This creates a clean, remote-like interface for each output.
+
+```yaml
+type: vertical-stack
+title: HDMI Matrix Control
+cards:
+  # --- CONTROLS FOR TV 1 (OUTPUT 1) ---
+  - type: custom:text-divider-row # Optional, or just use markdown
+    text: "TV 1 - Living Room"
+  - type: grid
+    columns: 4
+    square: false
+    cards:
+      - type: button
+        name: Apple TV (In 1)
+        icon: mdi:apple
+        tap_action:
+          action: call-service
+          service: pyscript.orei_set_route
+          service_data:
+            input_id: 1
+            output_id: 1
+      - type: button
+        name: PS5 (In 2)
+        icon: mdi:controller
+        tap_action:
+          action: call-service
+          service: pyscript.orei_set_route
+          service_data:
+            input_id: 2
+            output_id: 1
+      - type: button
+        name: Cable (In 3)
+        icon: mdi:television-box
+        tap_action:
+          action: call-service
+          service: pyscript.orei_set_route
+          service_data:
+            input_id: 3
+            output_id: 1
+      - type: button
+        name: PC (In 4)
+        icon: mdi:laptop
+        tap_action:
+          action: call-service
+          service: pyscript.orei_set_route
+          service_data:
+            input_id: 4
+            output_id: 1
+      # ... Repeat buttons for Inputs 5-8 if needed ...
+
+  # --- REPEAT THE GRID ABOVE FOR TV 2, TV 3, ETC. ---
 
 ### Troubleshooting
 * Status says "Unknown":
