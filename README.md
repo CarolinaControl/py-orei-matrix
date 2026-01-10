@@ -44,3 +44,13 @@ The integration exposes the following services you can use in automations:\
 * service `pyscript.orei_power`: Turn matrix on/off.
     * `power_state`: "on" or "off"
 * service `pyscript.orei_refresh_status`: Force a status update from the matrix.
+
+
+### Troubleshooting
+* Status says "Unknown":
+   * The matrix hasn't been polled yet. Click the "Refresh Status" service or wait for the startup trigger.
+* Connection Refused:
+   * Ensure the Matrix IP is static and correct. Try changing PORT = 8000 to PORT = 23 in orei_matrix.py if 8000 fails.
+
+### Disclaimer
+This is a community project and is not affiliated with OREI. Use at your own risk.
