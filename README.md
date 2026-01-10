@@ -5,8 +5,6 @@ A custom pyscript solution for the OREI matrix (OREI HDS-808) for Home Assistant
 
 A custom **[Pyscript](https://github.com/custom-components/pyscript)** integration to control the **OREI HDS-808 8x8 HDMI Matrix** via TCP/IP.
 
-<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="carolinacontrol" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
-
 This integration allows you to switch inputs/outputs, control power, and sync status directly from your Home Assistant dashboard without needing IR blasters or complex RS232 adapters.
 
 ![Home Assistant](https://img.shields.io/badge/Home%20Assistant-Custom-blue) ![Pyscript](https://img.shields.io/badge/Made%20for-Pyscript-yellow)
