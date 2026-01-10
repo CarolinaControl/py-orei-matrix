@@ -99,7 +99,7 @@ cards:
       # ... Repeat buttons for Inputs 5-8 if needed ...
 
   # --- REPEAT THE GRID ABOVE FOR TV 2, TV 3, ETC. ---
-
+```
 ### Troubleshooting
 * Status says "Unknown":
    * The matrix hasn't been polled yet. Click the "Refresh Status" service or wait for the startup trigger.
