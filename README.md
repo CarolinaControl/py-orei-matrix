@@ -14,7 +14,6 @@ This integration allows you to switch inputs/outputs, control power, and sync st
 * **Matrix Routing:** Route any of the 8 HDMI inputs to any of the 8 HDMI outputs.
 * **Power Control:** Turn the matrix ON or OFF remotely.
 * **Two-Way Feedback:** Reads the current status of the matrix to keep Home Assistant UI in sync (e.g., if someone uses the physical remote).
-* **Native UI:** Uses Home Assistant `select` entities for a clean dropdown interface.
 
 ## Prerequisites
 
