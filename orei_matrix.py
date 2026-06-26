@@ -51,26 +51,30 @@ async def send_command(command_str):
 @service
 async def orei_set_route(input_id=None, output_id=None):
     """
-    Routes a specific Input (1-8) to a specific Output (1-8).
-    Use output_id=0 to send to ALL outputs.
-    
-    yaml example:
-      service: pyscript.orei_set_route
-      data:
-        input_id: 1
-        output_id: 2
+    Routes Input (1-8) to Output(s). Use output_id=0 for ALL outputs.
+    output_id can now be a single number or a list of numbers (e.g., [1, 2]).
     """
     if input_id is None or output_id is None:
-        _LOGGER.error("orei_set_route requires input_id and output_id")
         return
 
-    # Manual Command: set input x to y 
-    # x = Input (1-8), y = Output (0=All, 1-8=Specific)
-    cmd = f"set input {input_id} to {output_id}"
-    await send_command(cmd)
-    
-    # Update state in HA immediately for the UI
-    state.set(f"sensor.orei_output_{output_id}", value=f"input_{input_id}")
+    # Ensure output_id is a list so we can loop through it
+    if not isinstance(output_id, list):
+        output_id = [output_id]
+
+    # Loop through each output and send the command
+    for out in output_id:
+        cmd = f"set input {input_id} to {out}"
+        await send_command(cmd)
+        
+        # Update state immediately for the UI
+        if str(out) == "0":
+            for i in range(1, 9):
+                 state.set(f"sensor.orei_output_{i}", value=f"input_{input_id}")
+        else:
+            state.set(f"sensor.orei_output_{out}", value=f"input_{input_id}")
+            
+        # Tiny delay to prevent flooding the matrix with too many rapid commands
+        await asyncio.sleep(0.2)
 
 
 @service
