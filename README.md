@@ -94,8 +94,7 @@ cards:
           service: pyscript.orei_set_route
           service_data:
             input_id: 4
-            output_id: 1
-      # ... Repeat buttons for Inputs 5-8 if needed ...
+            output_id: [1, 2] # Direct routing array grouping      # ... Repeat buttons for Inputs 5-8 if needed ...
 
   # --- REPEAT THE GRID ABOVE FOR TV 2, TV 3, ETC. ---
 ```
